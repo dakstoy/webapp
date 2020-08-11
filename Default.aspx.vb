@@ -458,9 +458,9 @@ Ending:
     End Sub
     Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
 
-        Dim url As String = "https://uat-dispatch.insightscs.com/dashboard/?customer=PHTXVC&server=PH&token=664e7f875af557df67d022e99fa6e5f25d940fa0&report=55"
+        'Dim url As String = "https://uat-dispatch.insightscs.com/dashboard/?customer=PHTXVC&server=PH&token=664e7f875af557df67d022e99fa6e5f25d940fa0&report=55"
 
-        Process.Start(url)
+        Page.ClientScript.RegisterStartupScript([GetType](), "OpenWindow", "window.open('https://uat-dispatch.insightscs.com/dashboard/?customer=PHTXVC&server=PH&token=664e7f875af557df67d022e99fa6e5f25d940fa0&report=55','_newtab');", True)
 
     End Sub
     Protected Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
