@@ -245,7 +245,8 @@ Ending:
             Catch ex As Exception
 
 
-                Label2.Text = "Select a file to upload first."
+                'Label2.Text = "Select a file to upload first."
+                Label2.Text = ex.Message
                 Label2.ForeColor = Color.Red
                 Page.MaintainScrollPositionOnPostBack = False
                 Page.SetFocus(Label2)
