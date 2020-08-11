@@ -384,6 +384,32 @@ Ending:
 
     End Sub
 
+    Public Sub TruncateTable6()
+
+        Try
+
+            Dim sql_connection As New SqlConnection
+            Dim sql_query As New SqlCommand
+            sql_connection.ConnectionString = "Server=tcp:opserver.database.windows.net,1433;Database=OpDb;Uid=openport@opserver;Pwd=smallKi+e83;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=0;"
+            sql_query.Connection = sql_connection
+            sql_connection.Open()
+            sql_query.CommandText = "Truncate Table dbo.Survey_Data_Prod;"
+            sql_query.CommandTimeout = 0
+
+            sql_query.ExecuteNonQuery()
+
+        Catch ex As Exception
+
+            Label2.Text = ""
+            Dim lbl As Label = New Label
+            lbl.Text = ex.Message
+            Panel3.Controls.Add(lbl)
+
+        End Try
+
+
+    End Sub
+
     Protected Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
 
         Try
@@ -438,6 +464,8 @@ Ending:
 
     End Sub
     Protected Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+
+        TruncateTable6()
 
         Dim sql_connection As New SqlConnection
         Dim sql_query As New SqlCommand
